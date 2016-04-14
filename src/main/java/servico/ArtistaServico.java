@@ -15,8 +15,13 @@ public class ArtistaServico {
 		dao = DaoFactory.criarArtistaDao();
 	}
 	
-	public void inserirAtualizar(Artista x){
+	public void inserirAtualizar(Artista x) throws ServicoException{
 		try{
+		    Artista aux = dao.buscaNomeExato(x.getNome());
+		    if (aux!=null){
+		    	throw new ServicoException("Já existe um artista com esse nome!", 1);
+		    }
+			
 		Transaction.begin();
 		dao.inserirAtualizar(x);
 		Transaction.commit();
@@ -54,4 +59,8 @@ public class ArtistaServico {
 		
 	}
 	
+	public List<Artista> buscarTodosOrdenadosPorNome() {
+		return dao.buscarTodosOrdenadosPorNome();
+	}
+
 }

@@ -1,3 +1,4 @@
+
 package dao;
 
 import java.util.List;
@@ -10,5 +11,7 @@ public interface ArtistaDao {
 	public Artista buscar (int cod);
 	public List<Artista> buscarTodos();
 	
-
+	public List<Artista> buscarTodosOrdenadosPorNome();
+	
+	public Artista buscaNomeExato(String nome);
 }

@@ -45,5 +45,6 @@ public class FilmeDaoImpl implements FilmeDao {
 		Query query = em.createNamedQuery(jpql);
 		return query.getResultList();
 	}
-
+	
+	
 }
